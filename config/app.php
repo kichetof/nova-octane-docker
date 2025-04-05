@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Zurich',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,11 +78,17 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    /*
+     * ENV values:
+        APP_LOCALE=fr
+        APP_FALLBACK_LOCALE=fr
+        APP_FAKER_LOCALE=fr_CH
+     */
+    'locale' => env('APP_LOCALE', 'fr'),
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'fr'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'fr_CH'),
 
     /*
     |--------------------------------------------------------------------------
