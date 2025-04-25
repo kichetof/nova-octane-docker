@@ -1,6 +1,11 @@
 <?php
 
+// use Fidum\NovaPackageBundler\Http\Middleware\OverrideNovaPackagesMiddleware;
+use Illuminate\Http\Middleware\CheckResponseForModifications;
 use Laravel\Nova\Actions\ActionResource;
+use Laravel\Nova\Http\Middleware\Authenticate;
+use Laravel\Nova\Http\Middleware\Authorize;
+use Laravel\Nova\Http\Middleware\HandleInertiaRequests;
 
 return [
 
@@ -95,21 +100,22 @@ return [
 
     'middleware' => [
         'web',
-        \Laravel\Nova\Http\Middleware\HandleInertiaRequests::class,
+        HandleInertiaRequests::class,
         'nova:serving',
+        // OverrideNovaPackagesMiddleware::class,
     ],
 
     'api_middleware' => [
         'nova',
-        \Laravel\Nova\Http\Middleware\Authenticate::class,
+        Authenticate::class,
         // \Laravel\Nova\Http\Middleware\AuthenticateSession::class,
         // \Laravel\Nova\Http\Middleware\EnsureEmailIsVerified::class,
-        \Laravel\Nova\Http\Middleware\Authorize::class,
+        Authorize::class,
     ],
 
     'asset_middleware' => [
         'nova:api',
-        \Illuminate\Http\Middleware\CheckResponseForModifications::class,
+        CheckResponseForModifications::class,
     ],
 
     /*
@@ -204,4 +210,14 @@ return [
         'stopped' => '/',
     ],
 
+    'vendors' => [
+        'collapsible_resource_manager' => [
+            'move_user_menu' => false,
+            'move_theme_switcher' => false,
+            'move_notification_center' => false,
+            'section_title' => false,
+            'collapse_on_select' => true,
+            'collapse_on_refresh' => true,
+        ],
+    ],
 ];

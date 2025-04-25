@@ -2,7 +2,8 @@ FROM dunglas/frankenphp
 
 RUN install-php-extensions \
     pcntl \
-    pdo_mysql
+    pdo_mysql \
+    zip
     # Add other PHP extensions here...
 
 COPY . /app
