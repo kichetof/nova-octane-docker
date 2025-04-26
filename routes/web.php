@@ -8,3 +8,6 @@ Route::get('/', function () {
 });
 
 Route::get('health', HealthCheckResultsController::class);
+
+// key available in lang/fr.json and not in lang/vendor/nova/fr.json
+Route::get('trigger', fn () => __('All rights reserved.'));
