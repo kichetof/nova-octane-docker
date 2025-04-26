@@ -2,8 +2,6 @@
 
 namespace App\Listeners;
 
-use Laravel\Nova\Nova;
-
 class FlushTranslatorLoaded
 {
     /**
@@ -19,14 +17,11 @@ class FlushTranslatorLoaded
      */
     public function handle(object $event): void
     {
-        Nova::$jsonVariables = [];
-        /*
         if (! $event->sandbox->resolved('translator')) {
             return;
         }
 
         $translator = $event->sandbox->make('translator');
         $translator->setLoaded([]);
-        */
     }
 }
